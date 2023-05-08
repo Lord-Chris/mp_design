@@ -1,11 +1,11 @@
 import 'dart:math';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mp_design/shared/components/_components.dart';
 import 'package:mp_design/views/detail_view/widgets/description.dart';
+import 'package:mp_design/views/detail_view/widgets/shipping_info.dart';
 
 import '../../shared/constants/_constants.dart';
 import '../home_view/widgets/sale_item.dart';
@@ -45,7 +45,7 @@ class DetailView extends HookWidget {
             child: Badge(
               label: Text("1"),
               child: Icon(
-                CupertinoIcons.chat_bubble_text,
+                Icons.shopping_bag_outlined,
                 color: AppColors.deepGrey,
               ),
             ),
@@ -72,17 +72,7 @@ class DetailView extends HookWidget {
                       const Description(),
                       const Divider(color: AppColors.deepGrey),
                       Spacing.vertRegular(),
-                      Text(
-                        'Shippings Information:',
-                        style: AppTextStyles.bold16,
-                      ),
-                      Spacing.vertSmall(),
-                      _buildShipInfo(
-                          'Delivery: ', 'Shipping from Jakarta, Indonesia'),
-                      _buildShipInfo(
-                          'Shipping: ', 'FREE International Shipping'),
-                      _buildShipInfo(
-                          'Arrive: ', 'Fetimated arrival on 25 - 27 Oct 2029'),
+                      const ShippingInfo(),
                       Spacing.vertSmall(),
                       const Divider(color: AppColors.deepGrey),
                       Spacing.vertRegular(),
@@ -212,29 +202,6 @@ class DetailView extends HookWidget {
                   ),
                 ],
               ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Padding _buildShipInfo(String label, String value) {
-    return Padding(
-      padding: REdgeInsets.fromLTRB(0, 10, 0, 10),
-      child: Row(
-        children: [
-          Text(
-            label,
-            style: AppTextStyles.regular13.copyWith(
-              color: AppColors.black.withOpacity(.5),
-            ),
-          ),
-          Spacing.horizTiny(),
-          Expanded(
-            child: Text(
-              value,
-              style: AppTextStyles.bold14,
             ),
           ),
         ],
