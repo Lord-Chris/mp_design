@@ -8,9 +8,11 @@ import '../../../shared/constants/_constants.dart';
 
 class SaleItem extends StatelessWidget {
   final int index;
+  final bool raise;
   const SaleItem({
     Key? key,
     required this.index,
+    this.raise = true,
   }) : super(key: key);
 
   @override
@@ -22,11 +24,11 @@ class SaleItem extends StatelessWidget {
       ),
       child: Container(
         decoration: BoxDecoration(
-          color: index == 0
+          color: index == 0 && raise
               ? AppColors.white.withOpacity(1)
               : AppColors.transparent,
           boxShadow: [
-            if (index == 0)
+            if (index == 0 && raise)
               BoxShadow(
                 spreadRadius: 1,
                 blurRadius: 5,

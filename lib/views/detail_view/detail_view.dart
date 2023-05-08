@@ -8,8 +8,12 @@ import 'package:mp_design/shared/components/_components.dart';
 import 'package:mp_design/views/detail_view/widgets/description.dart';
 
 import '../../shared/constants/_constants.dart';
+import '../home_view/widgets/sale_item.dart';
 import 'widgets/about_item.dart';
 import 'widgets/image_header.dart';
+import 'widgets/reviews_n_ratings.dart';
+import 'widgets/seller_info.dart';
+import 'widgets/top_reviews.dart';
 
 class DetailView extends HookWidget {
   const DetailView({super.key});
@@ -50,111 +54,164 @@ class DetailView extends HookWidget {
           Spacing.horizExtraTiny(),
         ],
       ),
-      body: ListView(
+      body: Column(
         children: [
-          const ImageHeader(),
-          Spacing.vertRegular(),
-          const AboutItem(),
-          Padding(
-            padding: REdgeInsets.all(20),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+          Expanded(
+            child: ListView(
               children: [
-                const Divider(color: AppColors.deepGrey),
+                const ImageHeader(),
                 Spacing.vertRegular(),
-                const Description(),
-                const Divider(color: AppColors.deepGrey),
-                Spacing.vertRegular(),
-                Text(
-                  'Shippings Information:',
-                  style: AppTextStyles.bold16,
-                ),
-                Spacing.vertSmall(),
-                _buildShipInfo(
-                    'Delivery: ', 'Shipping from Jakarta, Indonesia'),
-                _buildShipInfo('Shipping: ', 'FREE International Shipping'),
-                _buildShipInfo('Arrive: ', 'Fetimated arrival.or 290 2029'),
-                Spacing.vertSmall(),
-                const Divider(color: AppColors.deepGrey),
-                Spacing.vertRegular(),
-                Text(
-                  'Seller Information:',
-                  style: AppTextStyles.bold16,
-                ),
-                Spacing.vertRegular(),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Stack(
-                      children: [
-                        CircleAvatar(
-                          radius: 40.r,
-                          backgroundColor:
-                              AppColors.brandColor1.withOpacity(.2),
-                          child: Center(
-                            child: Text(
-                              'Thrifting\nStore.',
-                              textAlign: TextAlign.center,
-                              style: AppTextStyles.bold14.copyWith(
-                                color: AppColors.black,
-                              ),
+                const AboutItem(),
+                Padding(
+                  padding: REdgeInsets.all(20),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Divider(color: AppColors.deepGrey),
+                      Spacing.vertRegular(),
+                      const Description(),
+                      const Divider(color: AppColors.deepGrey),
+                      Spacing.vertRegular(),
+                      Text(
+                        'Shippings Information:',
+                        style: AppTextStyles.bold16,
+                      ),
+                      Spacing.vertSmall(),
+                      _buildShipInfo(
+                          'Delivery: ', 'Shipping from Jakarta, Indonesia'),
+                      _buildShipInfo(
+                          'Shipping: ', 'FREE International Shipping'),
+                      _buildShipInfo(
+                          'Arrive: ', 'Fetimated arrival on 25 - 27 Oct 2029'),
+                      Spacing.vertSmall(),
+                      const Divider(color: AppColors.deepGrey),
+                      Spacing.vertRegular(),
+                      const SellerInfo(),
+                      Spacing.vertSmall(),
+                      const Divider(color: AppColors.deepGrey),
+                      Spacing.vertRegular(),
+                      const ReviewsNRatings(),
+                      Spacing.vertSmall(),
+                      const Divider(color: AppColors.deepGrey),
+                      Spacing.vertRegular(),
+                      const TopReviews(),
+                      Spacing.vertLarge(),
+                      Row(
+                        children: [
+                          Text(
+                            'Recommendation',
+                            style: AppTextStyles.bold16,
+                          ),
+                          const Spacer(),
+                          Text(
+                            'See more',
+                            style: AppTextStyles.medium14.copyWith(
+                              color: AppColors.green,
                             ),
                           ),
+                        ],
+                      ),
+                      Spacing.vertMedium(),
+                      GridView.builder(
+                        gridDelegate:
+                            const SliverGridDelegateWithMaxCrossAxisExtent(
+                          maxCrossAxisExtent: 200,
+                          mainAxisExtent: 270,
+                          crossAxisSpacing: 20,
+                          mainAxisSpacing: 30,
                         ),
-                        Positioned(
-                          bottom: 5,
-                          right: 3,
-                          child: CircleAvatar(
-                            radius: 10.r,
-                            backgroundColor: AppColors.white,
-                            child: Icon(
-                              Icons.circle,
-                              size: 17,
-                              color: AppColors.brandColor1.withOpacity(.3),
-                            ),
+                        itemCount: 2,
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        itemBuilder: (context, index) {
+                          return SaleItem(
+                            index: index,
+                            raise: false,
+                          );
+                        },
+                      )
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Card(
+            elevation: 5,
+            margin: EdgeInsets.zero,
+            child: Padding(
+              padding: REdgeInsets.fromLTRB(20, 20, 15, 20),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Total Price',
+                          style: AppTextStyles.regular13.copyWith(
+                            color: AppColors.black.withOpacity(.5),
+                          ),
+                        ),
+                        Spacing.vertSmall(),
+                        Text(
+                          r'$18.00',
+                          style: AppTextStyles.bold20.copyWith(
+                            color: AppColors.green,
                           ),
                         ),
                       ],
                     ),
-                    Spacing.horizMedium(),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                  ),
+                  Expanded(
+                    child: AppButton(
+                      label: '',
+                      padding: EdgeInsets.zero,
+                      customChild: Row(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
-                          Text(
-                            'Thrifting_store',
-                            style: AppTextStyles.bold18,
-                          ),
-                          Spacing.vertSmall(),
-                          Text(
-                            'Active 5 mins ago | 96.7% positive Feedback',
-                            style: AppTextStyles.regular13.copyWith(
-                              color: AppColors.black.withOpacity(.5),
-                            ),
-                          ),
-                          Spacing.vertSmall(),
-                          AppButton(
-                            label: 'Visit Store',
-                            hasBorder: true,
-                            borderColor: AppColors.green,
-                            buttonColor: AppColors.transparent,
-                            labelColor: AppColors.green,
-                            isCollapsed: true,
-                            fontWeight: FontWeight.bold,
-                            padding: REdgeInsets.fromLTRB(25, 10, 25, 10),
-                            prefixWidget: Icon(
-                              CupertinoIcons.shopping_cart,
-                              size: 15.r,
+                          Expanded(
+                            flex: 2,
+                            child: Container(
                               color: AppColors.green,
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  const Icon(
+                                    Icons.shopping_bag_outlined,
+                                    color: AppColors.white,
+                                  ),
+                                  Spacing.horizSmall(),
+                                  Text(
+                                    '1',
+                                    style: AppTextStyles.medium14.copyWith(
+                                      color: AppColors.white,
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
-                            onTap: () {},
+                          ),
+                          Expanded(
+                            flex: 3,
+                            child: Container(
+                              alignment: Alignment.center,
+                              color: AppColors.brandColor1,
+                              child: Text(
+                                'Buy Now',
+                                style: AppTextStyles.bold14.copyWith(
+                                  color: AppColors.white,
+                                ),
+                              ),
+                            ),
                           ),
                         ],
                       ),
                     ),
-                  ],
-                ),
-              ],
+                  ),
+                ],
+              ),
             ),
           ),
         ],
@@ -173,7 +230,7 @@ class DetailView extends HookWidget {
               color: AppColors.black.withOpacity(.5),
             ),
           ),
-          Spacing.vertTiny(),
+          Spacing.horizTiny(),
           Expanded(
             child: Text(
               value,
