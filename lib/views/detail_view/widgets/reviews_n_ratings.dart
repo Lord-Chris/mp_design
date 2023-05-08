@@ -101,9 +101,11 @@ class ReviewsNRatings extends StatelessWidget {
         ),
         Spacing.vertRegular(),
         Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            ...List.filled(140, AppConstants.mockImage).take(3.w.floor()).map(
+            ...List.filled(140, AppConstants.mockImage)
+                .take((1.sw < 800 ? 3.w : 3.r).floor())
+                .map(
                   (e) => Padding(
                     padding: REdgeInsets.only(right: 14),
                     child: AppNetworkImage(
@@ -147,43 +149,45 @@ class ReviewsNRatings extends StatelessWidget {
     );
   }
 
-  Row _buildStarRating(String value, double progress, String count) {
-    return Row(
-      children: [
-        Icon(
-          Icons.star_rate_rounded,
-          color: AppColors.yellow,
-          size: 20.r,
-        ),
-        Spacing.horizSmall(),
-        Text(
-          value,
-          style: AppTextStyles.medium14.copyWith(
-            color: AppColors.black.withOpacity(.5),
+  Widget _buildStarRating(String value, double progress, String count) {
+    return Expanded(
+      child: Row(
+        children: [
+          Icon(
+            Icons.star_rate_rounded,
+            color: AppColors.yellow,
+            size: 20.r,
           ),
-        ),
-        Spacing.horizRegular(),
-        Expanded(
-          flex: 4,
-          child: SizedBox(
-            height: 10,
-            child: CustomPaint(
-              painter: RatingPaint(progress: progress),
-              child: Container(),
-            ),
-          ),
-        ),
-        Spacing.horizRegular(),
-        SizedBox(
-          width: 30.r,
-          child: Text(
-            count,
+          Spacing.horizSmall(),
+          Text(
+            value,
             style: AppTextStyles.medium14.copyWith(
-              color: AppColors.black,
+              color: AppColors.black.withOpacity(.5),
             ),
           ),
-        ),
-      ],
+          Spacing.horizRegular(),
+          Expanded(
+            flex: 4,
+            child: SizedBox(
+              height: 10.r,
+              child: CustomPaint(
+                painter: RatingPaint(progress: progress),
+                child: Container(),
+              ),
+            ),
+          ),
+          Spacing.horizRegular(),
+          SizedBox(
+            width: 30.r,
+            child: Text(
+              count,
+              style: AppTextStyles.medium14.copyWith(
+                color: AppColors.black,
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

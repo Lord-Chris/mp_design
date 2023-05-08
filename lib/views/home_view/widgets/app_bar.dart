@@ -16,7 +16,7 @@ class MySliverAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return SliverAppBar(
       pinned: true,
-      expandedHeight: 200.h,
+      expandedHeight: (1.sh < 800) ? 270.h : 200.h,
       forceElevated: innerBoxIsScrolled,
       backgroundColor: AppColors.white,
       elevation: 0,
@@ -34,8 +34,10 @@ class MySliverAppBar extends StatelessWidget {
                   padding: REdgeInsets.symmetric(horizontal: 20),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Spacing.vertLarge(),
+                      if (1.sh < 800) const Spacer(flex: 2),
                       const Spacer(),
                       Row(
                         children: [
@@ -80,7 +82,6 @@ class MySliverAppBar extends StatelessWidget {
                         labelSize: 12,
                         onTap: () {},
                       ),
-                      Spacing.vertTiny(),
                       const Spacer(),
                     ],
                   ),

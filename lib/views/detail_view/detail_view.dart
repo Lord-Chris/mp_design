@@ -110,7 +110,7 @@ class DetailView extends HookWidget {
                           crossAxisSpacing: 20,
                           mainAxisSpacing: 30,
                         ),
-                        itemCount: 2,
+                        itemCount: 2.w.floor(),
                         shrinkWrap: true,
                         physics: const NeverScrollableScrollPhysics(),
                         itemBuilder: (context, index) {

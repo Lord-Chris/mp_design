@@ -28,12 +28,17 @@ class SellerInfo extends StatelessWidget {
                 CircleAvatar(
                   radius: 40.r,
                   backgroundColor: AppColors.brandColor1.withOpacity(.2),
-                  child: Center(
-                    child: Text(
-                      'Thrifting\nStore.',
-                      textAlign: TextAlign.center,
-                      style: AppTextStyles.bold14.copyWith(
-                        color: AppColors.black,
+                  child: Container(
+                    padding: REdgeInsets.all(8),
+                    child: Center(
+                      child: FittedBox(
+                        child: Text(
+                          'Thrifting\nStore.',
+                          textAlign: TextAlign.center,
+                          style: AppTextStyles.bold14.copyWith(
+                            color: AppColors.black,
+                          ),
+                        ),
                       ),
                     ),
                   ),
