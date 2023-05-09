@@ -45,6 +45,7 @@ class AppNetworkImage extends StatelessWidget {
                 isCircular ? null : BorderRadius.circular(borderRadius),
             shape: isCircular ? BoxShape.circle : BoxShape.rectangle,
           ),
+          clipBehavior: Clip.hardEdge,
           child:
               // placeholderAssetImage!.endsWith(".svg")
               //     ? SvgPicture.asset(

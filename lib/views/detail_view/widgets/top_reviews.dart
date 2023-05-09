@@ -71,7 +71,7 @@ class TopReviews extends StatelessWidget {
                 Row(
                   children: [
                     AppNetworkImage(
-                      url: AppConstants.mockImage,
+                      placeholderAssetImage: AppConstants.mockAssetImage,
                       isCircular: true,
                       size: Size.fromRadius(15.r),
                       fit: BoxFit.cover,

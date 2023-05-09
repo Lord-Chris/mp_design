@@ -43,8 +43,8 @@ class SaleItem extends StatelessWidget {
               child: Stack(
                 fit: StackFit.expand,
                 children: [
-                  Image.network(
-                    AppConstants.mockImage,
+                  Image.asset(
+                    AppConstants.mockAssetImage,
                     fit: BoxFit.cover,
                   ),
                   Positioned(

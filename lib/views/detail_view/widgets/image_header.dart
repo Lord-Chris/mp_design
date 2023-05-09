@@ -22,8 +22,8 @@ class ImageHeader extends HookWidget {
             clipBehavior: Clip.hardEdge,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
-              image: const DecorationImage(
-                image: NetworkImage(AppConstants.mockImage),
+              image: DecorationImage(
+                image: AssetImage(AppConstants.mockAssetImage),
                 fit: BoxFit.cover,
               ),
             ),
@@ -51,15 +51,15 @@ class ImageHeader extends HookWidget {
                   left: 20,
                   child: Column(
                     children: [
-                      ...List.filled(3, AppConstants.mockImage).map(
+                      ...List.filled(3, AppConstants.mockAssetImage).map(
                         (e) => Container(
                           height: 40.r,
                           width: 40.r,
                           margin: REdgeInsets.only(bottom: 10),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
-                            image: const DecorationImage(
-                              image: NetworkImage(AppConstants.mockImage),
+                            image: DecorationImage(
+                              image: AssetImage(e),
                               fit: BoxFit.cover,
                             ),
                           ),

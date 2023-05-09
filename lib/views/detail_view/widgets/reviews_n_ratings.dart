@@ -103,14 +103,14 @@ class ReviewsNRatings extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            ...List.filled(140, AppConstants.mockImage)
+            ...List.filled(140, AppConstants.mockAssetImage)
                 .take((1.sw < 800 ? 3.w : 3.r).floor())
                 .map(
                   (e) => Padding(
                     padding: REdgeInsets.only(right: 14),
                     child: AppNetworkImage(
                       size: Size.fromRadius(35.r),
-                      url: AppConstants.mockImage,
+                      placeholderAssetImage: e,
                       fit: BoxFit.cover,
                       borderRadius: 15,
                     ),
@@ -122,7 +122,7 @@ class ReviewsNRatings extends StatelessWidget {
                 children: [
                   AppNetworkImage(
                     size: Size.fromRadius(35.r),
-                    url: AppConstants.mockImage,
+                    placeholderAssetImage: AppConstants.mockAssetImage,
                     fit: BoxFit.cover,
                     borderRadius: 15,
                   ),
