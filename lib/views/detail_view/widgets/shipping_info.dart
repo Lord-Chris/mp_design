@@ -10,6 +10,7 @@ class ShippingInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FaderWidget(
+      milliSecWait: 800,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

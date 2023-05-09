@@ -10,6 +10,7 @@ class Description extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FaderWidget(
+      milliSecWait: 600,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

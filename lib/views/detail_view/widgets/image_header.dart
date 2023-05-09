@@ -73,6 +73,7 @@ class ImageHeader extends HookWidget {
           ),
         ),
         FaderWidget(
+          milliSecWait: 400,
           child: Padding(
             padding: REdgeInsets.symmetric(horizontal: 20),
             child: Column(
