@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mp_design/shared/constants/_constants.dart';
+import 'package:mp_design/views/home_view/bottom_nav_bar.dart';
 
 import 'widgets/app_bar.dart';
 import 'widgets/category_list.dart';
@@ -43,6 +44,7 @@ class HomePage extends StatelessWidget {
           ),
         ),
       ),
+      bottomNavigationBar: BottomNavBar(),
     );
   }
 }

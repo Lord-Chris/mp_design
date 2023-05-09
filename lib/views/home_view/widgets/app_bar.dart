@@ -26,6 +26,7 @@ class MySliverAppBar extends StatelessWidget {
       collapsedHeight: 70.h,
       flexibleSpace: FlexibleSpaceBar(
         background: PageView(
+          physics: const ClampingScrollPhysics(),
           children: [
             Container(
               color: AppColors.grey,
@@ -97,11 +98,11 @@ class MySliverAppBar extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Spacing.vertLarge(),
-                      const Spacer(),
+                      const Spacer(flex: 3),
                       Row(
                         children: [
                           Text(
-                            '#FASHION DAY',
+                            '#BEAUTYSALE',
                             style: AppTextStyles.medium14,
                           ),
                           const Spacer(),
@@ -124,15 +125,11 @@ class MySliverAppBar extends StatelessWidget {
                           ),
                         ],
                       ),
+                      const Spacer(),
                       Spacing.vertExtraTiny(),
                       Text(
-                        '80% OFF',
-                        style: AppTextStyles.bold28,
-                      ),
-                      Spacing.vertSmall(),
-                      Text(
-                        'Discover Fashion that suits\nyour style.',
-                        style: AppTextStyles.regular12,
+                        'DISCOVER OUR\nBEAUTY SELECTION',
+                        style: AppTextStyles.medium18,
                       ),
                       const Spacer(),
                       AppButton(
