@@ -6,9 +6,17 @@ import '../../../shared/components/_components.dart';
 import '../../../shared/constants/_constants.dart';
 
 class CategoryList extends HookWidget {
-  const CategoryList({
+  CategoryList({
     super.key,
   });
+  final labels = ['Category', 'Flight', 'Bill', 'Data Plan', 'Top-up'];
+  final icons = [
+    Icons.category,
+    Icons.flight,
+    Icons.receipt,
+    Icons.signal_wifi_statusbar_connected_no_internet_4,
+    Icons.monetization_on,
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -28,26 +36,35 @@ class CategoryList extends HookWidget {
                   (e) => Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      ...List.filled(5, true).map(
-                        (e) => Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Container(
-                              padding: REdgeInsets.all(5),
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(7),
-                                color: AppColors.grey,
+                      Spacing.horizRegular(),
+                      for (int i = 0; i < icons.length; i++)
+                        Expanded(
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Container(
+                                padding: REdgeInsets.all(7),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(7),
+                                  color: AppColors.grey,
+                                ),
+                                child: Icon(
+                                  icons[i],
+                                  color: AppColors.deepGrey,
+                                  size: 17.r,
+                                ),
                               ),
-                              child: const Icon(Icons.ac_unit_outlined),
-                            ),
-                            Spacing.vertTiny(),
-                            Text(
-                              'Category',
-                              style: AppTextStyles.regular13,
-                            ),
-                          ],
+                              Spacing.vertSmall(),
+                              Text(
+                                labels[i],
+                                style: AppTextStyles.regular13.copyWith(
+                                  color: AppColors.black.withOpacity(.5),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
-                      )
+                      Spacing.horizRegular(),
                     ],
                   ),
                 )

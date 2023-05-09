@@ -68,14 +68,16 @@ class SaleItem extends StatelessWidget {
                 children: [
                   Text(
                     'Shirt',
-                    style: AppTextStyles.regular12.copyWith(
+                    style: AppTextStyles.regular11.copyWith(
                       color: AppColors.black.withOpacity(.5),
                     ),
                   ),
                   Spacing.vertExtraTiny(),
                   Text(
                     "Essential Men's Short-Sleeve Crewneck T-shirt",
-                    style: AppTextStyles.bold14,
+                    style: AppTextStyles.bold13.copyWith(
+                      letterSpacing: -.2,
+                    ),
                   ),
                   Spacing.vertSmall(),
                   Row(

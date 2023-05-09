@@ -123,6 +123,11 @@ class AppTextStyles {
     fontWeight: FontWeight.bold,
   );
 
+  static final bold13 = TextStyle(
+    fontSize: 13.spMin,
+    fontWeight: FontWeight.bold,
+  );
+
   static final bold14 = TextStyle(
     fontSize: 14.spMin,
     fontWeight: FontWeight.bold,

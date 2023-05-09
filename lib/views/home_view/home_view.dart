@@ -19,7 +19,7 @@ class HomePage extends StatelessWidget {
           MySliverAppBar(
             innerBoxIsScrolled: innerBoxIsScrolled,
           ),
-          const SliverToBoxAdapter(
+          SliverToBoxAdapter(
             child: CategoryList(),
           ),
           SliverPersistentHeader(
