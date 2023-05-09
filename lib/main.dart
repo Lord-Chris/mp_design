@@ -23,9 +23,9 @@ class MyApp extends StatelessWidget {
       designSize: const Size(375, 812),
       builder: (context, _) {
         return MaterialApp(
-          title: 'Flutter Demo',
+          title: 'MP Design',
           theme: ThemeData(
-            primarySwatch: Colors.blue,
+            primarySwatch: Colors.blueGrey,
             brightness: Brightness.light,
           ),
           home: const HomePage(),
