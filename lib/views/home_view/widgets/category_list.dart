@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
+import 'package:mp_design/views/home_view/detail_category_screen.dart';
 import '../../../shared/components/_components.dart';
 import '../../../shared/constants/_constants.dart';
 
@@ -39,29 +39,41 @@ class CategoryList extends HookWidget {
                       Spacing.horizRegular(),
                       for (int i = 0; i < icons.length; i++)
                         Expanded(
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Container(
-                                padding: REdgeInsets.all(7),
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(7),
-                                  color: AppColors.grey,
+                          child: GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => DetailCategoryScreen(
+                                          icon: icons.first,
+                                          label: labels.first,
+                                        )),
+                              );
+                            },
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Container(
+                                  padding: REdgeInsets.all(7),
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(7),
+                                    color: AppColors.grey,
+                                  ),
+                                  child: Icon(
+                                    icons[i],
+                                    color: AppColors.deepGrey,
+                                    size: 17.r,
+                                  ),
                                 ),
-                                child: Icon(
-                                  icons[i],
-                                  color: AppColors.deepGrey,
-                                  size: 17.r,
+                                Spacing.vertSmall(),
+                                Text(
+                                  labels[i],
+                                  style: AppTextStyles.regular13.copyWith(
+                                    color: AppColors.black.withOpacity(.5),
+                                  ),
                                 ),
-                              ),
-                              Spacing.vertSmall(),
-                              Text(
-                                labels[i],
-                                style: AppTextStyles.regular13.copyWith(
-                                  color: AppColors.black.withOpacity(.5),
-                                ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         ),
                       Spacing.horizRegular(),

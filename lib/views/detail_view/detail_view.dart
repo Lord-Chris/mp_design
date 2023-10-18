@@ -26,6 +26,7 @@ class DetailView extends HookWidget {
         elevation: 0,
         backgroundColor: AppColors.white,
         leading: IconButton(
+          
           onPressed: () => Navigator.pop(context),
           icon: const Icon(Icons.arrow_back_ios_new_rounded),
           color: AppColors.deepGrey,

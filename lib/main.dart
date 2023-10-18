@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'views/home_view/home_view.dart';
 
 void main() {
@@ -24,11 +23,12 @@ class MyApp extends StatelessWidget {
       builder: (context, _) {
         return MaterialApp(
           title: 'MP Design',
+          debugShowCheckedModeBanner: false,
           theme: ThemeData(
             primarySwatch: Colors.blueGrey,
             brightness: Brightness.light,
           ),
-          home: const HomePage(),
+          home: BottomNavBar(),
         );
       },
     );
