@@ -45,8 +45,8 @@ class CategoryList extends HookWidget {
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) => DetailCategoryScreen(
-                                          icon: icons.first,
-                                          label: labels.first,
+                                          icon: icons[i],
+                                          label: labels[i],
                                         )),
                               );
                             },

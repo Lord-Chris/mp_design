@@ -3,6 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mp_design/shared/constants/_constants.dart';
 
 import 'package:mp_design/views/home_view/setting_page.dart';
+import 'package:mp_design/views/home_view/voucher_screen.dart';
+import 'package:mp_design/views/home_view/wallet_screen.dart';
 
 import 'widgets/app_bar.dart';
 import 'widgets/category_list.dart';
@@ -35,8 +37,8 @@ class _BottomNavBarState extends State<BottomNavBar> {
 
   List<Widget> _screens = [
     HomeScreen(),
-    SettingsPage(),
-    SettingsPage(),
+  VoucherScreen(),
+  WalletScreen(),
     SettingsPage()
   ];
 
