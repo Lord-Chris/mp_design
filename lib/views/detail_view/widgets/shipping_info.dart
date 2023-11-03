@@ -9,20 +9,22 @@ class ShippingInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FaderWidget(
-      milliSecWait: 800,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            'Shippings Information:',
-            style: AppTextStyles.bold16,
-          ),
-          Spacing.vertSmall(),
-          _buildShipInfo('Delivery: ', 'Shipping from Jakarta, Indonesia'),
-          _buildShipInfo('Shipping: ', 'FREE International Shipping'),
-          _buildShipInfo('Arrive: ', 'Fetimated arrival on 25 - 27 Oct 2029'),
-        ],
+    return MergeSemantics(
+      child: FaderWidget(
+        milliSecWait: 800,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Shippings Information:',
+              style: AppTextStyles.bold16,
+            ),
+            Spacing.vertSmall(),
+            _buildShipInfo('Delivery: ', 'Shipping from Jakarta, Indonesia'),
+            _buildShipInfo('Shipping: ', 'FREE International Shipping'),
+            _buildShipInfo('Arrive: ', 'Fetimated arrival on 25 - 27 Oct 2029'),
+          ],
+        ),
       ),
     );
   }

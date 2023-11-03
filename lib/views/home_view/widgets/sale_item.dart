@@ -17,7 +17,9 @@ class SaleItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
+    return Semantics(
+      hint: 'Double Tap to see product details',
+      button: false,
       onTap: () => Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => const DetailView()),

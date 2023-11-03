@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mp_design/views/home_view/detail_category_screen.dart';
+
 import '../../../shared/components/_components.dart';
 import '../../../shared/constants/_constants.dart';
 
@@ -44,10 +45,11 @@ class CategoryList extends HookWidget {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => DetailCategoryScreen(
-                                          icon: icons[i],
-                                          label: labels[i],
-                                        )),
+                                  builder: (context) => DetailCategoryScreen(
+                                    icon: icons[i],
+                                    label: labels[i],
+                                  ),
+                                ),
                               );
                             },
                             child: Column(

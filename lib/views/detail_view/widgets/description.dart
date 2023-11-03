@@ -9,49 +9,51 @@ class Description extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FaderWidget(
-      milliSecWait: 600,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            'Description:',
-            style: AppTextStyles.bold16,
-          ),
-          Spacing.vertSmall(),
-          _buildDesc(
-              'Long-sleeve dress shirt in classic fit featuring button down collar'),
-          _buildDesc('Patch pocket on left chest'),
-          _buildDesc('Durable Combination Cotton Fabric'),
-          _buildDesc('Comfortable and cuality drese shirt'),
-          _buildDesc('Go-to classic button down shirt for all occasions'),
-          Spacing.vertRegular(),
-          Text(
-            'Chat us if there is anything you need to ask about the product :)',
-            style: AppTextStyles.regular14.copyWith(
-              color: AppColors.black.withOpacity(.5),
+    return MergeSemantics(
+      child: FaderWidget(
+        milliSecWait: 600,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Description:',
+              style: AppTextStyles.bold16,
             ),
-          ),
-          TextButton(
-            onPressed: () {},
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                Text(
-                  'See less',
-                  style: AppTextStyles.medium14.copyWith(
-                    color: AppColors.green,
+            Spacing.vertSmall(),
+            _buildDesc(
+                'Long-sleeve dress shirt in classic fit featuring button down collar'),
+            _buildDesc('Patch pocket on left chest'),
+            _buildDesc('Durable Combination Cotton Fabric'),
+            _buildDesc('Comfortable and cuality drese shirt'),
+            _buildDesc('Go-to classic button down shirt for all occasions'),
+            Spacing.vertRegular(),
+            Text(
+              'Chat us if there is anything you need to ask about the product :)',
+              style: AppTextStyles.regular14.copyWith(
+                color: AppColors.black.withOpacity(.5),
+              ),
+            ),
+            TextButton(
+              onPressed: () {},
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Text(
+                    'See less',
+                    style: AppTextStyles.medium14.copyWith(
+                      color: AppColors.green,
+                    ),
                   ),
-                ),
-                Icon(
-                  Icons.keyboard_arrow_up,
-                  color: AppColors.black.withOpacity(.5),
-                  size: 15.r,
-                ),
-              ],
+                  Icon(
+                    Icons.keyboard_arrow_up,
+                    color: AppColors.black.withOpacity(.5),
+                    size: 15.r,
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

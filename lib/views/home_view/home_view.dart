@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mp_design/shared/constants/_constants.dart';
-
 import 'package:mp_design/views/home_view/setting_page.dart';
 import 'package:mp_design/views/home_view/voucher_screen.dart';
 import 'package:mp_design/views/home_view/wallet_screen.dart';
@@ -12,7 +11,7 @@ import 'widgets/sale_item.dart';
 import 'widgets/sales_header.dart';
 
 class BottomNavBar extends StatefulWidget {
-  BottomNavBar({super.key});
+  const BottomNavBar({super.key});
 
   @override
   State<BottomNavBar> createState() => _BottomNavBarState();
@@ -35,47 +34,48 @@ class _BottomNavBarState extends State<BottomNavBar> {
 
   int _selectedIndex = 0;
 
-  List<Widget> _screens = [
-    HomeScreen(),
-  VoucherScreen(),
-  WalletScreen(),
-    SettingsPage()
+  final List<Widget> _screens = [
+    const HomeScreen(),
+    const VoucherScreen(),
+    const WalletScreen(),
+    const SettingsPage()
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: _screens.elementAt(_selectedIndex),
-        bottomNavigationBar: BottomNavigationBar(
-          elevation: 0,
-          currentIndex: _selectedIndex,
-          onTap: (value) {
-            setState(() {
-              _selectedIndex = value;
-            });
-          },
-          selectedItemColor: AppColors.green,
-          unselectedItemColor: AppColors.deepGrey.withOpacity(.6),
-          type: BottomNavigationBarType.fixed,
-          selectedLabelStyle: AppTextStyles.bold12.copyWith(
-            color: AppColors.black,
-          ),
-          iconSize: 25.r,
-          unselectedLabelStyle: AppTextStyles.medium12.copyWith(
-            color: AppColors.deepGrey,
-          ),
-          useLegacyColorScheme: false,
-          items: [
-            for (int i = 0; i < icons.length; i++)
-              BottomNavigationBarItem(
-                icon: Padding(
-                  padding: REdgeInsets.all(5),
-                  child: Icon(icons[i]),
-                ),
-                label: labels[i],
+      body: _screens.elementAt(_selectedIndex),
+      bottomNavigationBar: BottomNavigationBar(
+        elevation: 0,
+        currentIndex: _selectedIndex,
+        onTap: (value) {
+          setState(() {
+            _selectedIndex = value;
+          });
+        },
+        selectedItemColor: AppColors.green,
+        unselectedItemColor: AppColors.deepGrey.withOpacity(.6),
+        type: BottomNavigationBarType.fixed,
+        selectedLabelStyle: AppTextStyles.bold12.copyWith(
+          color: AppColors.black,
+        ),
+        iconSize: 25.r,
+        unselectedLabelStyle: AppTextStyles.medium12.copyWith(
+          color: AppColors.deepGrey,
+        ),
+        useLegacyColorScheme: false,
+        items: [
+          for (int i = 0; i < icons.length; i++)
+            BottomNavigationBarItem(
+              icon: Padding(
+                padding: REdgeInsets.all(5),
+                child: Icon(icons[i]),
               ),
-          ],
-        ));
+              label: labels[i],
+            ),
+        ],
+      ),
+    );
   }
 }
 

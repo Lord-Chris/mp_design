@@ -57,7 +57,7 @@ class SettingsPage extends HookWidget {
                   ),
                 ),
                 Positioned(
-                  right: 125,
+                  right: 130.w,
                   bottom: 15,
                   child: Visibility(
                     visible: isEditing.value,
@@ -76,7 +76,6 @@ class SettingsPage extends HookWidget {
                             icon: const Icon(Icons.edit),
                             color: AppColors.black,
                           ),
-                          // Icon(Icons.edit),
                         ),
                       ),
                     ),
@@ -85,29 +84,29 @@ class SettingsPage extends HookWidget {
               ],
             ),
             Spacing.vertLarge(),
-            // MergeSemantics(
-            //   child: Row(
-            //     children: <Widget>[
-            //       Checkbox(
-            //         value: true,
-            //         onChanged: (bool? value) {},
-            //       ),
-            //       const Text('Settings'),
-            //     ],
-            //   ),
-            // ),
             Expanded(
               child: Stack(
                 children: [
-                  Column(
-                    children: [
-                      CustomTextField(hintText: 'Full name', controller: name),
-                      Spacing.vertLarge(),
-                      CustomTextField(
-                          hintText: 'Email Address', controller: email),
-                      Spacing.vertLarge(),
-                      CustomTextField(hintText: 'Address', controller: address),
-                    ],
+                  ExcludeSemantics(
+                    excluding: !isEditing.value,
+                    child: Column(
+                      children: [
+                        CustomTextField(
+                          hintText: 'Full name',
+                          controller: name,
+                        ),
+                        Spacing.vertLarge(),
+                        CustomTextField(
+                          hintText: 'Email Address',
+                          controller: email,
+                        ),
+                        Spacing.vertLarge(),
+                        CustomTextField(
+                          hintText: 'Address',
+                          controller: address,
+                        ),
+                      ],
+                    ),
                   ),
                   if (!isEditing.value)
                     Container(
@@ -146,30 +145,32 @@ class SettingsPage extends HookWidget {
     );
   }
 
-  Row _buildDetails(IconData icon, String label, String value) {
-    return Row(
-      children: [
-        Icon(icon),
-        Spacing.horizRegular(),
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                label,
-                style: AppTextStyles.bold12.copyWith(
-                  color: AppColors.deepGrey,
+  Widget _buildDetails(IconData icon, String label, String value) {
+    return MergeSemantics(
+      child: Row(
+        children: [
+          Icon(icon),
+          Spacing.horizRegular(),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  label,
+                  style: AppTextStyles.bold12.copyWith(
+                    color: AppColors.deepGrey,
+                  ),
                 ),
-              ),
-              Spacing.vertTiny(),
-              Text(
-                value,
-                style: AppTextStyles.medium18.copyWith(),
-              ),
-            ],
+                Spacing.vertTiny(),
+                Text(
+                  value,
+                  style: AppTextStyles.medium18.copyWith(),
+                ),
+              ],
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

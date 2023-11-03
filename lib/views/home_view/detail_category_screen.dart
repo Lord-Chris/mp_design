@@ -8,8 +8,8 @@ class DetailCategoryScreen extends StatelessWidget {
   final String label;
   final IconData icon;
 
-   DetailCategoryScreen({super.key, required this.label, required this.icon});
- final labels = ['Category', 'Flight', 'Bill', 'Data Plan', 'Top-up'];
+  DetailCategoryScreen({super.key, required this.label, required this.icon});
+  final labels = ['Category', 'Flight', 'Bill', 'Data Plan', 'Top-up'];
   final icons = [
     Icons.category,
     Icons.flight,
@@ -20,15 +20,16 @@ class DetailCategoryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(backgroundColor: AppColors.grey,
-      leading:IconButton(
+      appBar: AppBar(
+        backgroundColor: AppColors.grey,
+        leading: IconButton(
           onPressed: () => Navigator.pop(context),
           icon: const Icon(Icons.arrow_back_ios_new_rounded),
           color: AppColors.deepGrey,
         ),
-      elevation: 0,),
+        elevation: 0,
+      ),
       body: Column(
-       // mainAxisSize: MainAxisSize.min,
         children: [
           Container(
             width: double.infinity,
@@ -39,14 +40,14 @@ class DetailCategoryScreen extends StatelessWidget {
               color: AppColors.grey,
             ),
             child: Icon(
-                   icon,
+              icon,
               color: AppColors.deepGrey,
               size: 100.r,
             ),
           ),
           Spacing.vertLarge(),
           Text(
-           label,
+            label,
             style: AppTextStyles.regular16.copyWith(
               fontSize: 30,
               fontWeight: FontWeight.w500,
