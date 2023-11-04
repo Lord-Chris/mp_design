@@ -17,6 +17,7 @@ class SaleItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // TODO:
     return InkWell(
       onTap: () => Navigator.push(
         context,

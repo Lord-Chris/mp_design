@@ -85,20 +85,10 @@ class SettingsPage extends HookWidget {
               ],
             ),
             Spacing.vertLarge(),
-            // MergeSemantics(
-            //   child: Row(
-            //     children: <Widget>[
-            //       Checkbox(
-            //         value: true,
-            //         onChanged: (bool? value) {},
-            //       ),
-            //       const Text('Settings'),
-            //     ],
-            //   ),
-            // ),
             Expanded(
               child: Stack(
                 children: [
+                  // TODO:
                   Column(
                     children: [
                       CustomTextField(hintText: 'Full name', controller: name),
@@ -147,6 +137,7 @@ class SettingsPage extends HookWidget {
   }
 
   Row _buildDetails(IconData icon, String label, String value) {
+    // TODO:
     return Row(
       children: [
         Icon(icon),

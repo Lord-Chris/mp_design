@@ -162,6 +162,7 @@ class MySliverAppBar extends StatelessWidget {
         ),
       ),
       actions: [
+        // TODO:
         const Center(
           child: Badge(
             label: Text("1"),
@@ -173,6 +174,7 @@ class MySliverAppBar extends StatelessWidget {
         ),
         Spacing.horizSmall(),
         Spacing.horizSmall(),
+        // TODO:
         const Center(
           child: Badge(
             label: Text("1"),
