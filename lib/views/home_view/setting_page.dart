@@ -87,6 +87,7 @@ class SettingsPage extends HookWidget {
             Expanded(
               child: Stack(
                 children: [
+                  // TODO: Exclude Semantics
                   ExcludeSemantics(
                     excluding: !isEditing.value,
                     child: Column(
@@ -146,6 +147,7 @@ class SettingsPage extends HookWidget {
   }
 
   Widget _buildDetails(IconData icon, String label, String value) {
+    // TODO: Merge Semantics
     return MergeSemantics(
       child: Row(
         children: [

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class WalletScreen extends StatelessWidget {
@@ -6,14 +5,20 @@ class WalletScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
-          children: [Text('Wallet',
-          style: TextStyle(color: Colors.black,
-          fontSize: 20,fontWeight: FontWeight.w700),)],
+          children: [
+            Text(
+              'Wallet',
+              style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 20,
+                  fontWeight: FontWeight.w700),
+            )
+          ],
         ),
       ),
     );

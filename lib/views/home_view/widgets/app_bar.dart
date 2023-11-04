@@ -169,6 +169,8 @@ class MySliverAppBar extends StatelessWidget {
           child: Center(
             child: Badge(
               label: const Text("1"),
+
+              // TODO: Semantics
               child: Semantics(
                 label: 'Cart Button',
                 hint: 'Double Tap to go to checkout',

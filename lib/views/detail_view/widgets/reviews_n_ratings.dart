@@ -10,142 +10,144 @@ class ReviewsNRatings extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          'Reviews & Ratings',
-          style: AppTextStyles.bold16,
-        ),
-        SizedBox(
-          height: 140.r,
-          child: Row(
-            children: [
-              Expanded(
-                flex: 2,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Spacing.vertSmall(),
-                    const Spacer(),
-                    RichText(
-                      text: TextSpan(
-                        children: [
-                          TextSpan(
-                            text: '4.9',
-                            style: AppTextStyles.bold40.copyWith(
-                              color: AppColors.black,
+    return MergeSemantics(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Reviews & Ratings',
+            style: AppTextStyles.bold16,
+          ),
+          SizedBox(
+            height: 140.r,
+            child: Row(
+              children: [
+                Expanded(
+                  flex: 2,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Spacing.vertSmall(),
+                      const Spacer(),
+                      RichText(
+                        text: TextSpan(
+                          children: [
+                            TextSpan(
+                              text: '4.9',
+                              style: AppTextStyles.bold40.copyWith(
+                                color: AppColors.black,
+                              ),
                             ),
-                          ),
-                          TextSpan(
-                            text: ' / 5.0',
-                            style: AppTextStyles.medium18.copyWith(
-                              color: AppColors.black.withOpacity(.5),
+                            TextSpan(
+                              text: ' / 5.0',
+                              style: AppTextStyles.medium18.copyWith(
+                                color: AppColors.black.withOpacity(.5),
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
-                    ),
-                    const Spacer(),
-                    RatingStars(
-                      value: 4.5,
-                      onValueChanged: (v) {},
-                      starBuilder: (index, color) => Icon(
-                        Icons.star_rate_rounded,
-                        color: color,
-                        size: 20.r,
+                      const Spacer(),
+                      RatingStars(
+                        value: 4.5,
+                        onValueChanged: (v) {},
+                        starBuilder: (index, color) => Icon(
+                          Icons.star_rate_rounded,
+                          color: color,
+                          size: 20.r,
+                        ),
+                        starSize: 20.r,
+                        starCount: 5,
+                        starSpacing: 0,
+                        maxValue: 5,
+                        maxValueVisibility: false,
+                        valueLabelVisibility: false,
+                        animationDuration: const Duration(milliseconds: 1000),
+                        starOffColor: AppColors.deepGrey.withOpacity(.7),
+                        starColor: AppColors.yellow,
                       ),
-                      starSize: 20.r,
-                      starCount: 5,
-                      starSpacing: 0,
-                      maxValue: 5,
-                      maxValueVisibility: false,
-                      valueLabelVisibility: false,
-                      animationDuration: const Duration(milliseconds: 1000),
-                      starOffColor: AppColors.deepGrey.withOpacity(.7),
-                      starColor: AppColors.yellow,
-                    ),
-                    const Spacer(flex: 2),
-                    Text(
-                      '2.3k+ Reviews',
-                      style: AppTextStyles.medium14.copyWith(
-                        color: AppColors.deepGrey,
+                      const Spacer(flex: 2),
+                      Text(
+                        '2.3k+ Reviews',
+                        style: AppTextStyles.medium14.copyWith(
+                          color: AppColors.deepGrey,
+                        ),
                       ),
-                    ),
-                    Spacing.vertSmall(),
-                  ],
+                      Spacing.vertSmall(),
+                    ],
+                  ),
                 ),
-              ),
-              Spacing.horizSmall(),
-              Expanded(
-                flex: 3,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                Spacing.horizSmall(),
+                Expanded(
+                  flex: 3,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      _buildStarRating('5', .85, '1.5k'),
+                      _buildStarRating('4', .4, '710'),
+                      _buildStarRating('3', .2, '140'),
+                      _buildStarRating('2', .05, '10'),
+                      _buildStarRating('1', .0005, '4'),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Spacing.vertRegular(),
+          Spacing.vertSmall(),
+          Text(
+            'Reviews with images & videos',
+            style: AppTextStyles.bold16,
+          ),
+          Spacing.vertRegular(),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              ...List.filled(140, AppConstants.mockAssetImage)
+                  .take((1.sw < 800 ? 3.w : 3.r).floor())
+                  .map(
+                    (e) => Padding(
+                      padding: REdgeInsets.only(right: 14),
+                      child: AppNetworkImage(
+                        size: Size.fromRadius(35.r),
+                        placeholderAssetImage: e,
+                        fit: BoxFit.cover,
+                        borderRadius: 15,
+                      ),
+                    ),
+                  ),
+              SizedBox.square(
+                dimension: 70.r,
+                child: Stack(
                   children: [
-                    _buildStarRating('5', .85, '1.5k'),
-                    _buildStarRating('4', .4, '710'),
-                    _buildStarRating('3', .2, '140'),
-                    _buildStarRating('2', .05, '10'),
-                    _buildStarRating('1', .0005, '4'),
+                    AppNetworkImage(
+                      size: Size.fromRadius(35.r),
+                      placeholderAssetImage: AppConstants.mockAssetImage,
+                      fit: BoxFit.cover,
+                      borderRadius: 15,
+                    ),
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                        color: AppColors.black.withOpacity(.5),
+                      ),
+                    ),
+                    Center(
+                      child: Text(
+                        '${140 - 3.w.floor()}+',
+                        style: AppTextStyles.medium16.copyWith(
+                          color: AppColors.white,
+                        ),
+                      ),
+                    )
                   ],
                 ),
               ),
             ],
           ),
-        ),
-        Spacing.vertRegular(),
-        Spacing.vertSmall(),
-        Text(
-          'Reviews with images & videos',
-          style: AppTextStyles.bold16,
-        ),
-        Spacing.vertRegular(),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            ...List.filled(140, AppConstants.mockAssetImage)
-                .take((1.sw < 800 ? 3.w : 3.r).floor())
-                .map(
-                  (e) => Padding(
-                    padding: REdgeInsets.only(right: 14),
-                    child: AppNetworkImage(
-                      size: Size.fromRadius(35.r),
-                      placeholderAssetImage: e,
-                      fit: BoxFit.cover,
-                      borderRadius: 15,
-                    ),
-                  ),
-                ),
-            SizedBox.square(
-              dimension: 70.r,
-              child: Stack(
-                children: [
-                  AppNetworkImage(
-                    size: Size.fromRadius(35.r),
-                    placeholderAssetImage: AppConstants.mockAssetImage,
-                    fit: BoxFit.cover,
-                    borderRadius: 15,
-                  ),
-                  Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
-                      color: AppColors.black.withOpacity(.5),
-                    ),
-                  ),
-                  Center(
-                    child: Text(
-                      '${140 - 3.w.floor()}+',
-                      style: AppTextStyles.medium16.copyWith(
-                        color: AppColors.white,
-                      ),
-                    ),
-                  )
-                ],
-              ),
-            ),
-          ],
-        ),
-      ],
+        ],
+      ),
     );
   }
 

@@ -17,6 +17,7 @@ class SaleItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // TODO: Semantics
     return Semantics(
       hint: 'Double Tap to see product details',
       button: false,
