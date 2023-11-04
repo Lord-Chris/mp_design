@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mp_design/shared/constants/_constants.dart';
-
 import 'package:mp_design/views/home_view/setting_page.dart';
 import 'package:mp_design/views/home_view/voucher_screen.dart';
 import 'package:mp_design/views/home_view/wallet_screen.dart';
@@ -12,7 +11,7 @@ import 'widgets/sale_item.dart';
 import 'widgets/sales_header.dart';
 
 class BottomNavBar extends StatefulWidget {
-  BottomNavBar({super.key});
+  const BottomNavBar({super.key});
 
   @override
   State<BottomNavBar> createState() => _BottomNavBarState();
@@ -35,11 +34,11 @@ class _BottomNavBarState extends State<BottomNavBar> {
 
   int _selectedIndex = 0;
 
-  List<Widget> _screens = [
-    HomeScreen(),
-  VoucherScreen(),
-  WalletScreen(),
-    SettingsPage()
+  final List<Widget> _screens = [
+    const HomeScreen(),
+    const VoucherScreen(),
+    const WalletScreen(),
+    const SettingsPage()
   ];
 
   @override
