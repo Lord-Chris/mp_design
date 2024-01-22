@@ -1,16 +1,18 @@
-# mp_design
+# MP Design and Accessibilty Session
+MP Design and Accessibilty Session is an app that showcases the use of animations using *SlideTransition* and *FadeTransition*. It is also the reference project for the session on **Accessibility in Flutter** which happened at **FlutterBytes Conference'23**.
 
-A new Flutter project.
+## Features
+- **Accessibility**: The app is accessible to all users, including those with disabilities.
+- **Animations**: Use of *SlideTransition* and *FadeTransition* to animate widgets.
+- **Responsive Design**: The app is responsive across screen sizes.
+- **Memory Leak Management**: The app makes use of *flutter_hooks* to dispose of resources when they are no longer needed e.g controllers.
 
-## Getting Started
+## Mobile App
+MP Design app is built using the following technologies:
 
-This project is a starting point for a Flutter application.
+- [Flutter](https://flutter.dev/), a cross-platform mobile development framework by Google.
+- [Flutter Hooks](https://pub.dev/packages/flutter_hooks), a Flutter package for hooks.
 
-A few resources to get you started if this is your first Flutter project:
+**MP Design can be previewed on iOS and Android.*
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Video Demo
