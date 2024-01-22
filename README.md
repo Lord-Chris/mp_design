@@ -16,3 +16,4 @@ MP Design app is built using the following technologies:
 **MP Design can be previewed on iOS and Android.*
 
 ## Video Demo
+![ScreenRecording2024-01-22at01 24 48-ezgif com-optimize](https://github.com/Lord-Chris/mp_design/assets/58702861/bc647ae3-3d64-4304-8896-73cec161dc6d)
